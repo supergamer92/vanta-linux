@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Install Vanta Linux
+Comment=Install Vanta Linux to your system
+Exec=calamares
+Icon=system-software-install
+Terminal=false
+Categories=System;
