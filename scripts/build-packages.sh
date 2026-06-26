@@ -9,7 +9,13 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PKG_DIR="${REPO_ROOT}/packages"
 CONFIG_DIR="${REPO_ROOT}/config"
 BRANDING_DIR="${REPO_ROOT}/branding"
-REPO_DIR="${1:-/repo/vanta}/x86_64"
+REPO_DIR="/repo/vanta/x86_64"
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --repo) REPO_DIR="$2/x86_64"; shift 2 ;;
+    *) shift ;;
+  esac
+done
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
