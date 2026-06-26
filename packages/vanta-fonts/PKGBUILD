@@ -1,30 +1,17 @@
 # Maintainer: Vanta Linux Team
-# vanta-fonts: Inter (UI) + JetBrains Mono (code) - the Vanta typefaces.
+# vanta-fonts: metapackage for Inter + JetBrains Mono.
+# Depends on the official Arch packages instead of rebuilding.
 
 pkgname=vanta-fonts
 pkgver=1.0
 pkgrel=1
-pkgdesc="Vanta Linux - Inter and JetBrains Mono font packages"
+pkgdesc="Vanta Linux - Inter and JetBrains Mono font metapackage"
 arch=('any')
 url="https://vanta.linux"
 license=('OFL-1.1')
-depends=()
-source=(
-  "https://github.com/rsms/inter/releases/download/v4.0/Inter-4.0.zip"
-  "https://github.com/JetBrains/JetBrainsMono/releases/download/v2.304/JetBrainsMono-2.304.zip"
-)
-sha256sums=('SKIP' 'SKIP')
+depends=('ttf-inter' 'ttf-jetbrains-mono')
+options=('!strip' '!purge' '!zipman')
 
 package() {
-  install -d "$pkgdir/usr/share/fonts/inter"
-  install -d "$pkgdir/usr/share/fonts/jetbrains-mono"
-  bsdtar -xf "$srcdir/Inter-4.0.zip" -C "$srcdir"
-  bsdtar -xf "$srcdir/JetBrainsMono-2.304.zip" -C "$srcdir"
-  find "$srcdir" -name '*.ttf' -o -name '*.otf' | while read -r f; do
-    case "$f" in
-      *Inter*) cp "$f" "$pkgdir/usr/share/fonts/inter/" ;;
-      *JetBrainsMono*) cp "$f" "$pkgdir/usr/share/fonts/jetbrains-mono/" ;;
-    esac
-  done
-  fc-cache -f "$pkgdir/usr/share/fonts"
+  return 0
 }
