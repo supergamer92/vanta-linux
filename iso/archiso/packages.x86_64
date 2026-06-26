@@ -11,7 +11,6 @@ nvidia-utils
 nvidia-settings
 mesa
 libva-mesa-driver
-mesa-vdpau
 vulkan-intel
 vulkan-radeon
 vulkan-icd-loader
@@ -40,7 +39,7 @@ polkit
 plasma-meta
 kwin
 wayland
-xwayland
+xorg-xwayland
 sddm
 ark
 kate
@@ -48,12 +47,9 @@ kcalc
 kdeconnect
 kde-gtk-config
 kdenetwork-filesharing
-kinit
 kmix
-knotes
 konsole
 kwrite
-kate
 dolphin
 elisa
 gwenview
@@ -91,7 +87,6 @@ audacity
 elisa
 
 # ==== Utilities ====
-pamac
 flatpak
 discover
 kdeconnect
@@ -103,19 +98,17 @@ kgpg
 kleopatra
 krunner
 ksystemlog
-ksysguard
+plasma-systemmonitor
 partitionmanager
 sweeper
 
 # ==== Development ====
 git
-base-devel
 cmake
 gdb
 python
 python-pip
 rust
-cargo
 go
 
 # ==== Vanta packages (built locally) ====
