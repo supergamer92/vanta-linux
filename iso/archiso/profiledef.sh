@@ -12,7 +12,7 @@ install_dir="vanta"
 buildmodes=('iso')
 bootmodes=(
   'uefi-x64.systemd-boot.esp'
-  'uefi-x64.systemd-boot.systemd-boot.esp'
+  'uefi.systemd-boot'
 )
 arch='x86_64'
 pacman_conf="pacman.conf"
