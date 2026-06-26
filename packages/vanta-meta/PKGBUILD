@@ -34,7 +34,7 @@ depends=(
   'plasma-meta'
   'kwin'
   'wayland'
-  'xwayland'
+  'xorg-xwayland'
   'sddm'
 
   # ==== Core applications ====
