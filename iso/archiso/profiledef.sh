@@ -4,7 +4,7 @@
 # Build with: mkarchiso -v -w /tmp/vanta-work -o out/ .
 
 iso_name="vanta-linux"
-iso_label="VANTA_$(date +%Y%m)"
+iso_label="VANTA_LIVE"
 iso_publisher="Vanta Linux <https://vanta.linux>"
 iso_application="Vanta Linux Live/Installer"
 iso_version="$(date +%Y.%m)"
