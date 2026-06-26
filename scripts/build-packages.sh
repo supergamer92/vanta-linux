@@ -104,8 +104,8 @@ log "Stage 2: Building packages..."
 
 PACKAGES=(
   vanta-fonts
-  vanta-theme-cursors
   vanta-theme-icons
+  vanta-theme-cursors
   vanta-theme-sounds
   vanta-theme-grub
   vanta-theme-plymouth

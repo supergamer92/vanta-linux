@@ -8,8 +8,8 @@ arch=('any')
 url="https://vanta.linux"
 license=('GPL3')
 depends=('breeze' 'vanta-theme-icons')
-source=("index.theme")
-sha256sums=('SKIP')
+source=()
+sha256sums=()
 
 package() {
   install -d "${pkgdir}/usr/share/icons/Vanta/cursors"
