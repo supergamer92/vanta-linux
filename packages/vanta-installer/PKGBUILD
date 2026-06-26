@@ -3,14 +3,22 @@
 pkgname=vanta-installer
 pkgver=1.0
 pkgrel=1
-pkgdesc="Vanta Linux - Calamares-based system installer with Vanta branding"
+pkgdesc="Vanta Linux - Calamares installer branding and modules"
 arch=('any')
 url="https://vanta.linux"
 license=('GPL3')
-depends=('calamares')
-source=("vanta-installer.tar.gz")
-sha256sums=('SKIP')
+depends=()
+optdepends=('calamares: system installer')
+source=("branding.desc" "show.qml" "module-vanta-settings.conf")
+sha256sums=('SKIP' 'SKIP' 'SKIP')
 
 package() {
-  tar -xzf "$srcdir/vanta-installer.tar.gz" -C "$pkgdir"
+  # Calamares branding
+  install -d "${pkgdir}/usr/share/calamares/branding/vanta"
+  install -Dm644 branding.desc "${pkgdir}/usr/share/calamares/branding/vanta/branding.desc"
+  install -Dm644 show.qml "${pkgdir}/usr/share/calamares/branding/vanta/show.qml"
+
+  # Vanta settings module
+  install -d "${pkgdir}/usr/lib/calamares/modules"
+  install -Dm644 module-vanta-settings.conf "${pkgdir}/usr/lib/calamares/modules/vanta-settings.conf"
 }

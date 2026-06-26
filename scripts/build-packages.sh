@@ -86,6 +86,17 @@ prepare_source "vanta-theme-plymouth" \
   "${BRANDING_DIR}/logo/logo-animated.svg" \
   "${PKG_DIR}/vanta-theme-plymouth/logo-animated.svg"
 
+# vanta-installer
+prepare_source "vanta-installer" \
+  "${REPO_ROOT}/apps/installer/branding/vanta/branding.desc" \
+  "${PKG_DIR}/vanta-installer/branding.desc"
+prepare_source "vanta-installer" \
+  "${REPO_ROOT}/apps/installer/branding/vanta/show.qml" \
+  "${PKG_DIR}/vanta-installer/show.qml"
+prepare_source "vanta-installer" \
+  "${REPO_ROOT}/apps/installer/module-vanta-settings.conf" \
+  "${PKG_DIR}/vanta-installer/module-vanta-settings.conf"
+
 log "Stage 1 complete."
 
 # ==== Stage 2: Build all packages =========================================
