@@ -1,0 +1,17 @@
+# Maintainer: Vanta Linux Team
+
+pkgname=vanta-theme-sounds
+pkgver=1.0
+pkgrel=1
+pkgdesc="Vanta Linux - Sound theme placeholder (uses Ocean as fallback)"
+arch=('any')
+url="https://vanta.linux"
+license=('GPL3')
+depends=('ocean-sound-theme')
+source=("index.theme")
+sha256sums=('SKIP')
+
+package() {
+  install -d "${pkgdir}/usr/share/sounds/Vanta"
+  install -Dm644 index.theme "${pkgdir}/usr/share/sounds/Vanta/index.theme"
+}

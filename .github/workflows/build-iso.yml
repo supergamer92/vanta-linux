@@ -1,0 +1,76 @@
+name: Build Vanta ISO
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      build_type:
+        description: 'ISO build type'
+        required: true
+        default: 'release'
+        type: choice
+        options:
+          - release
+          - debug
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+      options: --privileged
+
+    steps:
+    - name: Install build dependencies
+      run: |
+        pacman -Syu --noconfirm
+        pacman -S --noconfirm \
+          archiso \
+          base-devel \
+          git \
+          rust \
+          cargo \
+          squashfs-tools \
+          grub \
+          dosfstools \
+          mtools \
+          xorriso \
+          btrfs-progs \
+          snapper \
+          sudo
+        pacman -Scc --noconfirm
+
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Build packages
+      run: |
+        mkdir -p /repo/vanta/x86_64
+        bash scripts/build-packages.sh --repo /repo/vanta
+
+    - name: Build ISO
+      run: |
+        bash scripts/build-iso.sh --clean
+
+    - name: Upload ISO artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: vanta-iso-${{ github.sha }}
+        path: out/vanta-linux-*.iso
+        retention-days: 30
+        compression-level: 0
+
+    - name: Create release
+      if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: nightly-${{ github.run_number }}
+        name: "Vanta Linux Nightly ${{ github.run_number }}"
+        body: |
+          Automated nightly build of Vanta Linux.
+          Built from commit ${{ github.sha }}.
+        files: out/vanta-linux-*.iso
+        prerelease: true

@@ -1,0 +1,17 @@
+# Maintainer: Vanta Linux Team
+
+pkgname=vanta-theme-cursors
+pkgver=1.0
+pkgrel=1
+pkgdesc="Vanta Linux - Cursor theme (inherits Breeze)"
+arch=('any')
+url="https://vanta.linux"
+license=('GPL3')
+depends=('breeze')
+source=("index.theme")
+sha256sums=('SKIP')
+
+package() {
+  install -d "${pkgdir}/usr/share/icons/Vanta/cursors"
+  install -Dm644 index.theme "${pkgdir}/usr/share/icons/Vanta/index.theme"
+}

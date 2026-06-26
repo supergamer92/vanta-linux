@@ -1,0 +1,18 @@
+# Maintainer: Vanta Linux Team
+
+pkgname=vanta-theme-grub
+pkgver=1.0
+pkgrel=1
+pkgdesc="Vanta Linux - GRUB bootloader theme"
+arch=('any')
+url="https://vanta.linux"
+license=('GPL3')
+depends=('grub')
+source=("theme.txt" "grub-vanta.cfg")
+sha256sums=('SKIP' 'SKIP')
+
+package() {
+  install -d "${pkgdir}/boot/grub/themes/vanta"
+  install -Dm644 theme.txt "${pkgdir}/boot/grub/themes/vanta/theme.txt"
+  install -Dm644 grub-vanta.cfg "${pkgdir}/etc/default/grub.d/vanta.cfg"
+}

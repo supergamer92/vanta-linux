@@ -1,0 +1,12 @@
+# Vanta default wallpaper specification
+# Generate with ImageMagick:
+#
+# magick -size 3840x2160 gradient:'#0c0c0d'-'#141416' \
+#     -fill '#1a1a1d' -draw "rectangle 0,0 3840,40" \
+#     -fill '#e66100' -draw "rectangle 0,38 3840,40" \
+#     -font Inter -pointsize 14 -fill '#2c2c2e' \
+#     -gravity southeast -annotate +48+48 "Vanta" \
+#     vanta-default.jpg
+#
+# For a more refined version, use a subtle noise/grain overlay:
+# magick vanta-default.jpg -attenuate 0.05 +noise Gaussian vanta-default.jpg

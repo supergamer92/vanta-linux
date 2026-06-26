@@ -1,0 +1,49 @@
+#!/bin/bash
+# vanta-rollback: Roll back to a specific Btrfs snapshot
+# Usage: vanta-rollback <snapshot-number>
+
+set -euo pipefail
+
+CONFIG="vanta-root"
+SNAPSHOT_DIR="/.snapshots/${CONFIG}"
+
+if [ $# -lt 1 ]; then
+    echo "Usage: vanta-rollback <snapshot-number>"
+    echo ""
+    echo "Available snapshots:"
+    snapper -c "${CONFIG}" list
+    exit 1
+fi
+
+SNAPSHOT_NUM="$1"
+SNAPSHOT_PATH="${SNAPSHOT_DIR}/${SNAPSHOT_NUM}/snapshot"
+
+if [ ! -d "${SNAPSHOT_PATH}" ]; then
+    echo "Snapshot #${SNAPSHOT_NUM} not found at ${SNAPSHOT_PATH}"
+    echo "Run 'snapper -c ${CONFIG} list' to see available snapshots."
+    exit 1
+fi
+
+echo "WARNING: Rolling back to snapshot #${SNAPSHOT_NUM}"
+echo "This will restore the system state from:"
+snapper -c "${CONFIG}" list | grep "^${SNAPSHOT_NUM} " || true
+echo ""
+read -rp "Are you sure? Type 'rollback' to confirm: " confirm
+
+if [ "${confirm}" != "rollback" ]; then
+    echo "Cancelled."
+    exit 0
+fi
+
+echo "Rolling back to snapshot #${SNAPSHOT_NUM}..."
+
+# Snapper rollback creates a new default subvolume
+snapper -c "${CONFIG}" rollback "${SNAPSHOT_NUM}"
+
+# Regenerate GRUB config with updated snapshots
+grub-mkconfig -o /boot/grub/grub.cfg
+
+echo "Rollback complete. Reboot to apply."
+echo "  sudo reboot"
+echo ""
+echo "After reboot, verify with: snapper -c ${CONFIG} list"

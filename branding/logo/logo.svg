@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Vanta Linux logo: geometric V mark -->
+  <rect width="64" height="64" rx="14" fill="#0c0c0d"/>
+  <path d="M16 48 L32 12 L48 48" stroke="#e66100" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24 38 L32 24 L40 38" stroke="#f5f5f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+</svg>

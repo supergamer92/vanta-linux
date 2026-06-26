@@ -1,0 +1,17 @@
+# Maintainer: Vanta Linux Team
+
+pkgname=vanta-theme-kwin
+pkgver=1.0
+pkgrel=1
+pkgdesc="Vanta Linux - KWin decoration and window behavior"
+arch=('any')
+url="https://vanta.linux"
+license=('GPL3')
+depends=('kwin')
+source=("kwinrc" "kwinrulesrc")
+sha256sums=('SKIP' 'SKIP')
+
+package() {
+  install -Dm644 kwinrc "${pkgdir}/etc/skel/.config/kwinrc"
+  install -Dm644 kwinrulesrc "${pkgdir}/etc/skel/.config/kwinrulesrc"
+}

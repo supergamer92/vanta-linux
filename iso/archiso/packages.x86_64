@@ -1,0 +1,133 @@
+# Vanta Linux - ISO package list
+
+# ==== Base system ====
+base
+base-devel
+linux
+linux-firmware
+amd-ucode
+nvidia-dkms
+nvidia-utils
+nvidia-settings
+mesa
+libva-mesa-driver
+mesa-vdpau
+vulkan-intel
+vulkan-radeon
+vulkan-icd-loader
+
+# ==== Boot & init ====
+grub
+efibootmgr
+os-prober
+plymouth
+refind
+
+# ==== System services ====
+systemd
+networkmanager
+pipewire
+pipewire-pulse
+pipewire-alsa
+wireplumber
+bluez
+bluez-utils
+upower
+fwupd
+polkit
+
+# ==== Display ====
+plasma-meta
+kwin
+wayland
+xwayland
+sddm
+ark
+kate
+kcalc
+kdeconnect
+kde-gtk-config
+kdenetwork-filesharing
+kinit
+kmix
+knotes
+konsole
+kwrite
+kate
+dolphin
+elisa
+gwenview
+spectacle
+print-manager
+gcompris-qt
+gimp
+gparted
+
+# ==== File system / atomic updates ====
+btrfs-progs
+snapper
+grub-btrfs
+inotify-tools
+
+# ==== Fonts ====
+vanta-fonts
+noto-fonts
+noto-fonts-cjk
+ttf-liberation
+
+# ==== Network ====
+firefox
+thunderbird
+transmission-gtk
+krdc
+krfb
+
+# ==== Multimedia ====
+mpv
+celluloid
+ffmpegthumbs
+kdenlive
+audacity
+elisa
+
+# ==== Utilities ====
+pamac
+flatpak
+discover
+kdeconnect
+filelight
+kdf
+kdialog
+kfind
+kgpg
+kleopatra
+krunner
+ksystemlog
+ksysguard
+partitionmanager
+sweeper
+
+# ==== Development ====
+git
+base-devel
+cmake
+gdb
+python
+python-pip
+rust
+cargo
+go
+
+# ==== Vanta packages (built locally) ====
+vanta-meta
+vanta-settings
+vanta-theme-plasma
+vanta-theme-kwin
+vanta-theme-grub
+vanta-theme-sddm
+vanta-theme-plymouth
+vanta-theme-icons
+vanta-theme-cursors
+vanta-theme-sounds
+vanta-updater
+vanta-installer

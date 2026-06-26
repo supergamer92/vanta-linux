@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Vanta
+Comment=Vanta Linux - Minimalist Noir theme
+Type=Service
+X-KDE-ParentApp=SystemSettings
+X-KDE-ServiceTypes=KQuickConfigModule
+X-KDE-Weight=0
+Icon=preferences-desktop-theme

@@ -1,0 +1,4 @@
+﻿[Sound Theme]
+Name=Vanta
+Comment=Vanta Linux sound theme (inherits Ocean)
+Inherits=ocean

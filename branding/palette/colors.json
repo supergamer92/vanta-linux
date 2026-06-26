@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "project": "Vanta Linux",
+    "description": "Official color palette. Dark-only. No light theme.",
+    "last_updated": "2026-06-26",
+    "status": "LOCKED"
+  },
+  "semantic": {
+    "background": {
+      "base":       "#0c0c0d",
+      "elevated":   "#171719",
+      "surface":    "#1e1e21",
+      "popup":      "#262629",
+      "hover":      "#2e2e32"
+    },
+    "foreground": {
+      "primary":    "#f5f5f7",
+      "secondary":  "#aeaeb2",
+      "tertiary":   "#6e6e73",
+      "disabled":   "#3a3a3c"
+    },
+    "accent": {
+      "amber":      "#e66100",
+      "amber-soft": "#cc5800",
+      "amber-glow": "#ff9f1c",
+      "amber-dim":  "#8a3c00",
+      "amber-bg":   "#261400"
+    },
+    "border": {
+      "subtle":     "#2c2c2e",
+      "default":    "#38383a",
+      "focus":      "#e66100"
+    },
+    "frosted": {
+      "dark":       "rgba(12, 12, 13, 0.72)",
+      "medium":     "rgba(12, 12, 13, 0.56)",
+      "light":      "rgba(30, 30, 33, 0.64)"
+    },
+    "status": {
+      "success":    "#30d158",
+      "warning":    "#e66100",
+      "error":      "#ff453a",
+      "info":       "#64d2ff"
+    },
+    "text": {
+      "selection-bg":   "#e66100",
+      "selection-fg":   "#ffffff",
+      "cursor":         "#e66100",
+      "link":           "#cc5800",
+      "visited-link":   "#8a3c00"
+    }
+  },
+  "translucency": {
+    "frost-intensity": {
+      "panel":      0.35,
+      "notification": 0.45,
+      "tooltip":    0.30,
+      "menu":       0.40
+    },
+    "blur-radius": {
+      "panel":      48,
+      "notification": 32,
+      "tooltip":    24,
+      "menu":       36
+    }
+  },
+  "syntax": {
+    "comment":      "#6e6e73",
+    "keyword":      "#e66100",
+    "string":       "#ffd60a",
+    "number":       "#64d2ff",
+    "type":         "#5e5ce6",
+    "function":     "#f5f5f7",
+    "operator":     "#aeaeb2",
+    "variable":     "#ff9f1c",
+    "constant":     "#ff9f1c"
+  },
+  "derived": {
+    "shadow": {
+      "elevation-1": "0 1px 3px rgba(0,0,0,0.5)",
+      "elevation-2": "0 4px 12px rgba(0,0,0,0.6)",
+      "elevation-3": "0 8px 24px rgba(0,0,0,0.7)",
+      "elevation-4": "0 16px 48px rgba(0,0,0,0.8)"
+    }
+  }
+}

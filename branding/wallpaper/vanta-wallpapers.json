@@ -1,0 +1,36 @@
+{
+  "wallpapers": [
+    {
+      "name": "Vanta Default",
+      "description": "Solid near-black with subtle gradient and amber accent line",
+      "filename": "vanta-default.jpg",
+      "resolution": "3840x2160",
+      "color": "#0c0c0d",
+      "type": "gradient"
+    },
+    {
+      "name": "Vanta Dark Grain",
+      "description": "Near-black with subtle film grain texture",
+      "filename": "vanta-grain.jpg",
+      "resolution": "3840x2160",
+      "color": "#0c0c0d",
+      "type": "texture"
+    },
+    {
+      "name": "Vanta Amber Drift",
+      "description": "Dark background with soft amber light drift from bottom-right",
+      "filename": "vanta-amber.jpg",
+      "resolution": "3840x2160",
+      "color": "#0c0c0d",
+      "type": "gradient"
+    },
+    {
+      "name": "Vanta Observatory",
+      "description": "Very dark blue-black with subtle starfield",
+      "filename": "vanta-observatory.jpg",
+      "resolution": "3840x2160",
+      "color": "#0a0a0f",
+      "type": "pattern"
+    }
+  ]
+}

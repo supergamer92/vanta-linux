@@ -1,0 +1,13 @@
+# Vanta Linux dconf defaults
+/org/gnome/desktop/interface/font-name "Inter 12"
+/org/gnome/desktop/interface/monospace-font-name "JetBrains Mono 12"
+/org/gnome/desktop/interface/gtk-theme "Breeze-Dark"
+/org/gnome/desktop/interface/icon-theme "Vanta"
+/org/gnome/desktop/interface/cursor-theme "Vanta"
+/org/gnome/desktop/interface/enable-animations true
+/org/gnome/settings-daemon/plugins/power/sleep-inactive-ac-type "nothing"
+/org/gnome/desktop/privacy/report-technical-problems false
+/org/kde/konsole/DefaultProfile/Font "JetBrains Mono,12,-1,5,50,0,0,0,0,0"
+/org/kde/konsole/DefaultProfile/ColorScheme "Vanta"
+/org/kde/konsole/DefaultProfile/AntiAliasFonts true
+/org/kde/krunner/plugins/FallbackEnabled true

@@ -1,0 +1,7 @@
+[Icon Theme]
+Name=Vanta
+Comment=Vanta Linux icon theme (inherits Breeze)
+Inherits=breeze-dark
+Example=folder
+DisplayDepth=32
+MinDisplayDepth=16

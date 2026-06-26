@@ -1,0 +1,15 @@
+[Unit]
+Description=Vanta Linux - first-boot initialization
+Documentation=https://vanta.linux/docs/setup
+ConditionPathExists=!/var/lib/vanta-initialized
+After=network.target
+Before=sddm.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/vanta-init --apply
+ExecStartPost=/usr/bin/touch /var/lib/vanta-initialized
+
+[Install]
+WantedBy=multi-user.target

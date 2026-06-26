@@ -1,0 +1,37 @@
+# Maintainer: Vanta Linux Team
+
+pkgname=vanta-theme-plasma
+pkgver=1.0
+pkgrel=1
+pkgdesc="Vanta Linux - Plasma global theme (dark, matte, amber accent)"
+arch=('any')
+url="https://vanta.linux"
+license=('GPL3')
+depends=('plasma-desktop')
+source=(
+  "Vanta.colors"
+  "kdeglobals"
+  "plasma-org.kde.plasma.desktop-appletsrc"
+  "metadata.desktop"
+)
+sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP')
+
+package() {
+  # Color scheme
+  install -Dm644 Vanta.colors "${pkgdir}/usr/share/color-schemes/Vanta.colors"
+
+  # Global settings (default for new users)
+  install -Dm644 kdeglobals "${pkgdir}/etc/skel/.config/kdeglobals"
+
+  # Panel layout
+  install -d "${pkgdir}/usr/share/plasma/layout-templates/org.vanta.desktop/contents"
+  install -Dm644 plasma-org.kde.plasma.desktop-appletsrc \
+    "${pkgdir}/usr/share/plasma/layout-templates/org.vanta.desktop/contents/plasma-org.kde.plasma.desktop-appletsrc"
+  install -Dm644 metadata.desktop \
+    "${pkgdir}/usr/share/plasma/layout-templates/org.vanta.desktop/metadata.desktop"
+
+  # Look and feel
+  install -d "${pkgdir}/usr/share/plasma/look-and-feel/org.vanta.desktop/contents"
+  install -Dm644 metadata.desktop \
+    "${pkgdir}/usr/share/plasma/look-and-feel/org.vanta.desktop/metadata.desktop"
+}

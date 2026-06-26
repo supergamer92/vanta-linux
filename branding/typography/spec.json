@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "project": "Vanta Linux",
+    "description": "Typography specification. Single typeface family, weight-driven hierarchy.",
+    "last_updated": "2026-06-26",
+    "status": "DECIDED"
+  },
+  "typeface": {
+    "family": "Inter",
+    "source": "https://rsms.me/inter/",
+    "license": "OFL-1.1",
+    "fallback": "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
+    "monospace": {
+      "family": "JetBrains Mono",
+      "source": "https://www.jetbrains.com/lp/mono/",
+      "license": "OFL-1.1",
+      "fallback": "'Cascadia Code', 'Fira Code', 'Source Code Pro', monospace"
+    }
+  },
+  "scale": {
+    "display": {
+      "size": 24,
+      "weight": 700,
+      "tracking": -0.5,
+      "line-height": 1.2
+    },
+    "heading-1": {
+      "size": 18,
+      "weight": 600,
+      "tracking": -0.3,
+      "line-height": 1.3
+    },
+    "heading-2": {
+      "size": 14,
+      "weight": 600,
+      "tracking": 0.0,
+      "line-height": 1.4
+    },
+    "body": {
+      "size": 12,
+      "weight": 400,
+      "tracking": 0.0,
+      "line-height": 1.5
+    },
+    "body-small": {
+      "size": 11,
+      "weight": 400,
+      "tracking": 0.0,
+      "line-height": 1.4
+    },
+    "caption": {
+      "size": 10,
+      "weight": 400,
+      "tracking": 0.1,
+      "line-height": 1.3
+    },
+    "label": {
+      "size": 10,
+      "weight": 500,
+      "tracking": 0.3,
+      "line-height": 1.3,
+      "transform": "uppercase"
+    },
+    "mono-body": {
+      "size": 12,
+      "weight": 400,
+      "tracking": 0.0,
+      "line-height": 1.5
+    },
+    "mono-caption": {
+      "size": 10,
+      "weight": 400,
+      "tracking": 0.0,
+      "line-height": 1.3
+    }
+  },
+  "rendering": {
+    "hinting": "grayscale",
+    "dpi-threshold": 144,
+    "subpixel": "none"
+  }
+}

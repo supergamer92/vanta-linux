@@ -1,0 +1,33 @@
+# Vanta Linux dconf defaults
+# Applied on first boot by vanta-init
+
+# Desktop
+/org/gnome/desktop/interface/font-name "Inter 12"
+/org/gnome/desktop/interface/monospace-font-name "JetBrains Mono 12"
+/org/gnome/desktop/interface/document-font-name "Inter 12"
+/org/gnome/desktop/interface/gtk-theme "Breeze-Dark"
+/org/gnome/desktop/interface/icon-theme "Vanta"
+/org/gnome/desktop/interface/cursor-theme "Vanta"
+/org/gnome/desktop/interface/enable-animations true
+
+# Disable automatic suspend on AC power
+/org/gnome/settings-daemon/plugins/power/sleep-inactive-ac-type "nothing"
+
+# Privacy
+/org/gnome/desktop/privacy/report-technical-problems false
+/org/gnome/desktop/privacy/send-software-usage-stats false
+
+# Prefer Wayland session
+/org/gnome/mutter/experimental-features ["scale-monitor-framebuffer"]
+
+# Dolphin
+/org/kde/dolphin/preferences/showOpenAction true
+/org/kde/dolphin/preferences/splitView false
+/org/kde/dolphin/preferences/viewPropsTimestamp 0
+
+# Konsole
+/org/kde/konsole/DefaultProfile/Font "JetBrains Mono,12,-1,5,50,0,0,0,0,0"
+/org/kde/konsole/DefaultProfile/ColorScheme "Vanta"
+/org/kde/konsole/DefaultProfile/AntiAliasFonts true
+/org/kde/konsole/DefaultProfile/BoldIntense false
+/org/kde/konsole/DefaultProfile/ShowTerminalSizeOnTitle true

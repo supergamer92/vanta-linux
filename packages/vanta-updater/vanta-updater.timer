@@ -1,0 +1,11 @@
+[Unit]
+Description=Vanta Linux - daily atomic update check
+Documentation=https://vanta.linux/docs/updates
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+RandomizedDelaySec=1800
+
+[Install]
+WantedBy=timers.target

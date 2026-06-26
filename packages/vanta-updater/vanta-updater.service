@@ -1,0 +1,11 @@
+[Unit]
+Description=Vanta Linux - check for atomic system updates
+Documentation=https://vanta.linux/docs/updates
+RefuseManualStart=no
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/vanta-update --check
+Nice=19
+IOSchedulingClass=2
+IOSchedulingPriority=7

@@ -1,0 +1,15 @@
+post_install() {
+  echo ":: Vanta Linux installed."
+  echo ":: Run 'vanta-init' after reboot to apply system defaults."
+  echo ":: Or apply now: sudo vanta-init --apply"
+}
+
+post_upgrade() {
+  echo ":: Vanta Linux updated."
+  echo ":: Check https://vanta.linux/release-notes for changes."
+}
+
+pre_remove() {
+  echo ":: Removing Vanta Linux metapackage."
+  echo ":: Theme files left in place. Remove manually if desired."
+}

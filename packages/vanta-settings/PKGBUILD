@@ -1,0 +1,56 @@
+# Maintainer: Vanta Linux Team
+
+pkgname=vanta-settings
+pkgver=1.0
+pkgrel=1
+pkgdesc="Vanta Linux - System settings defaults and configuration profiles"
+arch=('any')
+url="https://vanta.linux"
+license=('GPL3')
+depends=('dconf')
+source=(
+  "vanta-init.sh"
+  "dconf-defaults"
+  "gtk-settings.ini"
+  "fonts-local.conf"
+  "sysctl-vanta.conf"
+  "konsole-Vanta.colorscheme"
+  "nvidia-modprobe.conf"
+)
+sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP')
+
+package() {
+  # Configuration defaults
+  install -d "${pkgdir}/etc/vanta"
+  install -Dm644 dconf-defaults "${pkgdir}/etc/vanta/dconf-defaults"
+  install -Dm644 gtk-settings.ini "${pkgdir}/etc/vanta/gtk-settings.ini"
+  install -Dm644 fonts-local.conf "${pkgdir}/etc/vanta/fonts-local.conf"
+  install -Dm644 sysctl-vanta.conf "${pkgdir}/etc/vanta/sysctl-vanta.conf"
+  install -Dm644 nvidia-modprobe.conf "${pkgdir}/etc/vanta/nvidia-modprobe.conf"
+
+  # Konsole color scheme
+  install -d "${pkgdir}/usr/share/konsole"
+  install -Dm644 konsole-Vanta.colorscheme "${pkgdir}/usr/share/konsole/Vanta.colorscheme"
+
+  # Sysctl
+  install -d "${pkgdir}/etc/sysctl.d"
+  install -Dm644 sysctl-vanta.conf "${pkgdir}/etc/sysctl.d/99-vanta.conf"
+
+  # Modprobe (NVIDIA)
+  install -d "${pkgdir}/etc/modprobe.d"
+  install -Dm644 nvidia-modprobe.conf "${pkgdir}/etc/modprobe.d/nvidia-vanta.conf"
+
+  # Fontconfig
+  install -d "${pkgdir}/etc/fonts"
+  install -Dm644 fonts-local.conf "${pkgdir}/etc/fonts/local.conf"
+
+  # Init script
+  install -d "${pkgdir}/usr/bin"
+  install -Dm755 vanta-init.sh "${pkgdir}/usr/bin/vanta-init"
+
+  # Dconf database (pre-loaded)
+  install -d "${pkgdir}/etc/dconf/db"
+  install -d "${pkgdir}/etc/dconf/profile"
+  echo "user-db:user" > "${pkgdir}/etc/dconf/profile/vanta"
+  echo "system-db:vanta" >> "${pkgdir}/etc/dconf/profile/vanta"
+}

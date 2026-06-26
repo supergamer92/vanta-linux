@@ -1,0 +1,26 @@
+// Vanta Linux Plymouth boot script
+// Minimalist dark boot splash with amber accent
+
+Logo = "logo.png";
+LogoScale = 0.15;
+
+Window.SetBackgroundTopColor(0.047, 0.047, 0.051);
+Window.SetBackgroundBottomColor(0.047, 0.047, 0.051);
+
+// No text messages by default
+Window.SetMessageFunction("");
+Window.SetProgressReturnFunction("");
+
+global.Window.SetDisplayProgressFunction = function(ratio) {
+    // progress bar drawn below logo
+    // amber color #e66100 -> rgb(0.902, 0.373, 0)
+    // background #2c2c2e -> rgb(0.173, 0.173, 0.180)
+    var barWidth = 160;
+    var barHeight = 2;
+    var barX = (Window.GetWidth() - barWidth) / 2;
+    var barY = Window.GetHeight() * 0.62;
+    var filled = barWidth * ratio;
+
+    Window.DrawRect(barX, barY, barWidth, barHeight, 0.173, 0.173, 0.180, 1.0);
+    Window.DrawRect(barX, barY, filled, barHeight, 0.902, 0.373, 0.0, 1.0);
+};

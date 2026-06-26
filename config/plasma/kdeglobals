@@ -1,0 +1,32 @@
+[KDE]
+ColorScheme=Vanta
+widgetStyle=Breeze
+ShowIconsInMenuItems=true
+ShowIconsOnPushButtons=false
+ShowToolbarButtons=true
+AllowKDEAppsToRememberPosition=true
+NaturalSorting=true
+SingleClick=true
+GraphicEffectsLevel=2
+contrast=4
+
+[General]
+XftAntialias=true
+XftHinting=true
+XftHintStyle=hintmedium
+XftRGBA=none
+XftSubPixel=none
+font=Inter,12,-1,5,50,0,0,0,0,0
+menuFont=Inter,12,-1,5,50,0,0,0,0,0
+smallestReadableFont=Inter,10,-1,5,50,0,0,0,0,0
+fixed=JetBrains Mono,12,-1,5,50,0,0,0,0,0
+toolBarFont=Inter,12,-1,5,50,0,0,0,0,0
+
+[Icons]
+Theme=Vanta
+
+[DRSTranslation]
+AuthoritativeOrder=NVIDIA 0;eDP-1;DP-1;HDMI-1
+
+[ScreenScaleLog]
+scaleFactors=eDP-1=1.5

@@ -1,0 +1,35 @@
+# Vanta Linux Calamares branding
+
+componentName: vanta
+
+strings:
+  productName:         Vanta Linux
+  shortProductName:    Vanta
+  version:             1.0
+  shortVersion:        1.0
+  versionedName:       Vanta Linux 1.0
+  shortVersionedName:  Vanta 1.0
+  bootloaderEntryName: Vanta
+
+  productUrl:          https://vanta.linux
+  supportUrl:          https://vanta.linux/support
+  knownIssuesUrl:      https://vanta.linux/issues
+  releaseNotesUrl:     https://vanta.linux/release-notes
+
+  welcomeHeader:       Welcome to Vanta Linux.
+  welcomeMessage: >
+    Vanta is a dark-first Linux distribution built on Arch Linux and KDE
+    Plasma. It is designed for developers, creatives, and enthusiasts who
+    want Unix power with zero visual debt.
+
+    This installer will guide you through setting up Vanta on your machine.
+    Ensure you have a stable internet connection and at least 20 GB of disk
+    space.
+
+images:
+  productLogo:         "logo.svg"
+  productIcon:         "logo.svg"
+  productWelcome:      "welcome.png"
+
+slideshow:             "show.qml"
+style:                 "style.qss"

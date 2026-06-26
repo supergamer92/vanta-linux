@@ -1,0 +1,4 @@
+﻿[Icon Theme]
+Name=Vanta
+Comment=Vanta Linux cursor theme (inherits Breeze)
+Inherits=breeze_cursors

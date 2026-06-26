@@ -1,0 +1,12 @@
+[Unit]
+Description=Vanta Linux - system performance tuning
+Documentation=https://vanta.linux/docs/performance
+After=sysinit.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/sysctl --system
+
+[Install]
+WantedBy=multi-user.target

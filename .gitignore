@@ -1,0 +1,26 @@
+# Vanta Linux - gitignore
+
+# Build artifacts
+out/
+*.iso
+/pkg/
+/src/
+*.pkg.tar.zst
+*.pkg.tar.xz
+
+# ISO build workdir
+/tmp/vanta-iso-*
+
+# Generated wallpapers
+branding/wallpaper/generated/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS artifacts
+.DS_Store
+Thumbs.db

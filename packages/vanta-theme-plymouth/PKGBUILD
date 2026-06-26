@@ -1,0 +1,19 @@
+# Maintainer: Vanta Linux Team
+
+pkgname=vanta-theme-plymouth
+pkgver=1.0
+pkgrel=1
+pkgdesc="Vanta Linux - Plymouth boot splash theme"
+arch=('any')
+url="https://vanta.linux"
+license=('GPL3')
+depends=('plymouth')
+source=("vanta.script" "vanta.plymouth" "logo-animated.svg")
+sha256sums=('SKIP' 'SKIP' 'SKIP')
+
+package() {
+  install -d "${pkgdir}/usr/share/plymouth/themes/vanta"
+  install -Dm644 vanta.script "${pkgdir}/usr/share/plymouth/themes/vanta/vanta.script"
+  install -Dm644 vanta.plymouth "${pkgdir}/usr/share/plymouth/themes/vanta/vanta.plymouth"
+  install -Dm644 logo-animated.svg "${pkgdir}/usr/share/plymouth/themes/vanta/logo.svg"
+}

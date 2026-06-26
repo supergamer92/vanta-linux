@@ -1,0 +1,16 @@
+# Maintainer: Vanta Linux Team
+
+pkgname=vanta-installer
+pkgver=1.0
+pkgrel=1
+pkgdesc="Vanta Linux - Calamares-based system installer with Vanta branding"
+arch=('any')
+url="https://vanta.linux"
+license=('GPL3')
+depends=('calamares')
+source=("vanta-installer.tar.gz")
+sha256sums=('SKIP')
+
+package() {
+  tar -xzf "$srcdir/vanta-installer.tar.gz" -C "$pkgdir"
+}

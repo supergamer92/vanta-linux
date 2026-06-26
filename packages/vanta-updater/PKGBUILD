@@ -1,0 +1,25 @@
+# Maintainer: Vanta Linux Team
+
+pkgname=vanta-updater
+pkgver=1.0
+pkgrel=1
+pkgdesc="Vanta Linux - Atomic transactional update system (Btrfs snapshot-based)"
+arch=('x86_64')
+url="https://vanta.linux"
+license=('GPL3')
+depends=('snapper' 'grub-btrfs' 'pacman' 'inotify-tools' 'btrfs-progs')
+makedepends=('rust' 'cargo')
+source=("vanta-updater.rs" "vanta-rollback" "vanta-updater.service" "vanta-updater.timer" "vanta-snapper.conf")
+sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP')
+
+build() {
+  rustc -C opt-level=2 -o vanta-updater vanta-updater.rs
+}
+
+package() {
+  install -Dm755 vanta-updater "${pkgdir}/usr/bin/vanta-update"
+  install -Dm755 vanta-rollback "${pkgdir}/usr/bin/vanta-rollback"
+  install -Dm644 vanta-updater.service "${pkgdir}/usr/lib/systemd/system/vanta-updater.service"
+  install -Dm644 vanta-updater.timer "${pkgdir}/usr/lib/systemd/system/vanta-updater.timer"
+  install -Dm644 vanta-snapper.conf "${pkgdir}/etc/snapper/configs/vanta-root"
+}

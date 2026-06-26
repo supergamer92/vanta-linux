@@ -1,0 +1,19 @@
+# Maintainer: Vanta Linux Team
+
+pkgname=vanta-theme-sddm
+pkgver=1.0
+pkgrel=1
+pkgdesc="Vanta Linux - SDDM login screen theme"
+arch=('any')
+url="https://vanta.linux"
+license=('GPL3')
+depends=('sddm' 'qt6-quickcontrols2' 'qt6-svg')
+source=("Main.qml" "sddm.conf" "logo.svg")
+sha256sums=('SKIP' 'SKIP' 'SKIP')
+
+package() {
+  install -d "${pkgdir}/usr/share/sddm/themes/vanta"
+  install -Dm644 Main.qml "${pkgdir}/usr/share/sddm/themes/vanta/Main.qml"
+  install -Dm644 logo.svg "${pkgdir}/usr/share/sddm/themes/vanta/logo.svg"
+  install -Dm644 sddm.conf "${pkgdir}/etc/sddm.conf.d/vanta.conf"
+}

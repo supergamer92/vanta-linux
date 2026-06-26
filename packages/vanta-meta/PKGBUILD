@@ -1,0 +1,89 @@
+# Maintainer: Vanta Linux Team
+# vanta-meta: metapackage pulling in the complete Vanta Linux experience.
+# Installs the base system, all Vanta theme packages, and default applications.
+#
+# This package contains no files of its own. It exists so that
+#   pacman -S vanta-meta
+# installs everything needed for a functioning Vanta system.
+
+pkgname=vanta-meta
+pkgver=1.0
+pkgrel=1
+pkgdesc="Vanta Linux - metapackage for the complete Vanta desktop experience"
+arch=('x86_64')
+url="https://vanta.linux"
+license=('GPL3')
+depends=(
+  # ==== Base system ====
+  'linux'
+  'linux-firmware'
+  'amd-ucode'
+  'mesa'
+  'nvidia-dkms'
+  'nvidia-utils'
+  'nvidia-settings'
+  'pipewire'
+  'pipewire-pulse'
+  'pipewire-alsa'
+  'wireplumber'
+  'networkmanager'
+  'bluez'
+  'bluez-utils'
+
+  # ==== Display / Compositor ====
+  'plasma-meta'
+  'kwin'
+  'wayland'
+  'xwayland'
+  'sddm'
+
+  # ==== Core applications ====
+  'dolphin'
+  'konsole'
+  'kate'
+  'spectacle'
+  'gwenview'
+  'ark'
+  'kcalc'
+  'kwrite'
+  'elisa'
+  'firefox'
+  'mpv'
+  'celluloid'
+
+  # ==== Fonts (packaged separately) ====
+  'vanta-fonts'
+
+  # ==== Theming (all vanta-* packages) ====
+  'vanta-theme-plasma'
+  'vanta-theme-kwin'
+  'vanta-theme-icons'
+  'vanta-theme-cursors'
+  'vanta-theme-sounds'
+  'vanta-theme-sddm'
+  'vanta-theme-plymouth'
+  'vanta-theme-grub'
+
+  # ==== System tooling ====
+  'vanta-settings'
+  'vanta-updater'
+  'vanta-installer'
+  'snapper'
+  'grub-btrfs'
+  'inotify-tools'
+  'pamac'
+  'flatpak'
+  'fwupd'
+
+  # ==== Developer tooling ====
+  'git'
+  'base-devel'
+)
+makedepends=()
+options=('!strip' '!purge' '!zipman')
+install=vanta-meta.install
+
+package() {
+  # metapackage — all work done by depends
+  return 0
+}
