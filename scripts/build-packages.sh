@@ -147,15 +147,12 @@ for pkg in "${PACKAGES[@]}"; do
     makepkg -s --noconfirm || err "Failed to build ${pkg}"
   fi
 
-  # Copy to local repo
+  # Copy to local repo and update database immediately
   cp -v *.pkg.tar.zst "${REPO_DIR}/" 2>/dev/null || true
+  repo-add "${REPO_DIR}/vanta.db.tar.gz" "${REPO_DIR}"/*.pkg.tar.zst 2>/dev/null || true
 
   cd "${REPO_ROOT}"
 done
-
-# Update repo database
-log "Updating repository database..."
-repo-add "${REPO_DIR}/vanta.db.tar.gz" "${REPO_DIR}"/*.pkg.tar.zst
 
 log "All packages built successfully."
 log "Repository: ${REPO_DIR}"
