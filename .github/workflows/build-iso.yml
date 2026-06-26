@@ -1,4 +1,4 @@
-name: Build Vanta ISO
+name: Build Vanta Linux ISO
 
 on:
   push:
