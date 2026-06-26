@@ -121,6 +121,17 @@ PACKAGES=(
 command -v makepkg >/dev/null 2>&1 || err "makepkg not found. Install base-devel."
 mkdir -p "${REPO_DIR}"
 
+# Add local repo to pacman config so vanta-* deps resolve
+if [ -f /etc/pacman.conf ] && ! grep -q "\[vanta\]" /etc/pacman.conf 2>/dev/null; then
+  cat >> /etc/pacman.conf << 'PACMANEOF'
+
+[vanta]
+SigLevel = Optional TrustAll
+Server = file:///repo/vanta/$arch
+PACMANEOF
+  pacman -Sy --noconfirm 2>/dev/null || true
+fi
+
 for pkg in "${PACKAGES[@]}"; do
   PKGPATH="${PKG_DIR}/${pkg}"
   if [ ! -d "${PKGPATH}" ]; then
@@ -134,8 +145,12 @@ for pkg in "${PACKAGES[@]}"; do
   # Clean previous builds
   rm -rf pkg src *.pkg.tar.zst 2>/dev/null || true
 
-  # Build package
-  makepkg -s --noconfirm || err "Failed to build ${pkg}"
+  # Build package (use --nodeps for vanta-meta; -s for all others)
+  if [ "${pkg}" = "vanta-meta" ]; then
+    makepkg --nodeps --noconfirm || err "Failed to build ${pkg}"
+  else
+    makepkg -s --noconfirm || err "Failed to build ${pkg}"
+  fi
 
   # Copy to local repo
   cp -v *.pkg.tar.zst "${REPO_DIR}/" 2>/dev/null || true
