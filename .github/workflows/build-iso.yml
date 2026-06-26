@@ -37,14 +37,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Create build user (makepkg refuses to run as root)
+    - name: Create build user
       run: |
         useradd -m builder
         echo "builder ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/builder
         mkdir -p "$GITHUB_WORKSPACE"
         chown -R builder:builder "$GITHUB_WORKSPACE"
 
-    - name: Add local repo to pacman (so vanta-* deps resolve)
+    - name: Add local repo to pacman
       run: |
         cat >> /etc/pacman.conf << 'PACMANEOF'
 
