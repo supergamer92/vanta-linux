@@ -44,18 +44,18 @@ jobs:
         mkdir -p "$GITHUB_WORKSPACE"
         chown -R builder:builder "$GITHUB_WORKSPACE"
 
-    - name: Add local repo to pacman
+    - name: Setup local repo and build packages
       run: |
+        mkdir -p /repo/vanta/x86_64
+        # Initialize empty pacman database so pacman doesn't reject transactions
+        repo-add /repo/vanta/x86_64/vanta.db.tar.gz
         cat >> /etc/pacman.conf << 'PACMANEOF'
 
         [vanta]
         SigLevel = Optional TrustAll
         Server = file:///repo/vanta/$arch
         PACMANEOF
-
-    - name: Build packages
-      run: |
-        mkdir -p /repo/vanta/x86_64
+        pacman -Sy --noconfirm
         chown -R builder:builder /repo
         su builder -c "bash scripts/build-packages.sh --repo /repo/vanta"
 
