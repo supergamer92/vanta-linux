@@ -21,6 +21,7 @@ efibootmgr
 os-prober
 plymouth
 refind
+syslinux
 
 # ==== System services ====
 systemd

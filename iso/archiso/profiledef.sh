@@ -11,6 +11,8 @@ iso_version="$(date +%Y.%m)"
 install_dir="vanta"
 buildmodes=('iso')
 bootmodes=(
+  'bios.syslinux.mbr'
+  'bios.syslinux.eltorito'
   'uefi-x64.systemd-boot.esp'
   'uefi.systemd-boot'
 )
