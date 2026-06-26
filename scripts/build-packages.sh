@@ -121,15 +121,10 @@ PACKAGES=(
 command -v makepkg >/dev/null 2>&1 || err "makepkg not found. Install base-devel."
 mkdir -p "${REPO_DIR}"
 
-# Add local repo to pacman config so vanta-* deps resolve
-if [ -f /etc/pacman.conf ] && ! grep -q "\[vanta\]" /etc/pacman.conf 2>/dev/null; then
-  cat >> /etc/pacman.conf << 'PACMANEOF'
-
-[vanta]
-SigLevel = Optional TrustAll
-Server = file:///repo/vanta/$arch
-PACMANEOF
-  pacman -Sy --noconfirm 2>/dev/null || true
+# Ensure vanta-* deps can resolve (local repo must be in pacman.conf)
+# This should have been set up by the CI workflow or build environment.
+if [ ! -f /etc/pacman.conf ] || ! grep -q "\[vanta\]" /etc/pacman.conf 2>/dev/null; then
+  log "WARNING: [vanta] repo not in pacman.conf - vanta-* build deps may fail"
 fi
 
 for pkg in "${PACKAGES[@]}"; do

@@ -1,4 +1,4 @@
-name: Build Vanta ISO
+﻿name: Build Vanta ISO
 
 on:
   push:
@@ -43,6 +43,15 @@ jobs:
         echo "builder ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/builder
         mkdir -p "$GITHUB_WORKSPACE"
         chown -R builder:builder "$GITHUB_WORKSPACE"
+
+    - name: Add local repo to pacman (so vanta-* deps resolve)
+      run: |
+        cat >> /etc/pacman.conf << 'PACMANEOF'
+
+[vanta]
+SigLevel = Optional TrustAll
+Server = file:///repo/vanta/$arch
+PACMANEOF
 
     - name: Build packages
       run: |
