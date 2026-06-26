@@ -48,10 +48,10 @@ jobs:
       run: |
         cat >> /etc/pacman.conf << 'PACMANEOF'
 
-[vanta]
-SigLevel = Optional TrustAll
-Server = file:///repo/vanta/$arch
-PACMANEOF
+        [vanta]
+        SigLevel = Optional TrustAll
+        Server = file:///repo/vanta/$arch
+        PACMANEOF
 
     - name: Build packages
       run: |
