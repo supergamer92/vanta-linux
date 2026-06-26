@@ -41,7 +41,8 @@ jobs:
       run: |
         useradd -m builder
         echo "builder ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/builder
-        chown -R builder:builder "${{ github.workspace }}"
+        mkdir -p "$GITHUB_WORKSPACE"
+        chown -R builder:builder "$GITHUB_WORKSPACE"
 
     - name: Build packages
       run: |
