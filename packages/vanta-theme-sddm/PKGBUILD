@@ -7,7 +7,7 @@ pkgdesc="Vanta Linux - SDDM login screen theme"
 arch=('any')
 url="https://vanta.linux"
 license=('GPL3')
-depends=('sddm' 'qt6-quickcontrols2' 'qt6-svg')
+depends=('sddm' 'qt6-declarative' 'qt6-svg')
 source=("Main.qml" "sddm.conf" "logo.svg")
 sha256sums=('SKIP' 'SKIP' 'SKIP')
 
